@@ -1,0 +1,50 @@
+---
+
+- name: Install packages
+  community.general.pacman:
+    state: present
+    name:
+    - netcat
+    - nmap
+    - xclip
+    - bat
+    - vim
+    - kubectl
+    - kubectx
+    - minikube
+  become: True
+
+- name: Create tools dir
+  ansible.builtin.file:
+    state: directory
+    path: ~/tools
+
+- name: Clone repositories
+  ansible.builtin.git:
+    repo: "{{ item.repo }}"
+    dest: "~/tools/{{ item.name }}"
+  with_items:
+    - name: zsh-autosuggestions
+      repo: https://github.com/zsh-users/zsh-autosuggestions
+    - name: p10k
+      repo: https://github.com/romkatv/powerlevel10k
+
+- name: Add config
+  ansible.builtin.blockinfile:
+    path: ~/.zshrc
+    block: |
+      PATH=~/bin:$PATH
+
+      # Aliases
+      ## Abbreviations
+      alias c="clear"
+      ## Kubernetes
+      alias kctx="kubectx"
+      alias kns="kubens"
+      alias k="kubectl"
+      ## Commands
+      alias cat="bat"
+      alias vi="vim"
+
+      # Zsh plugins
+      source ~/tools/zsh-autosuggestions/zsh-autosuggestions.zsh
