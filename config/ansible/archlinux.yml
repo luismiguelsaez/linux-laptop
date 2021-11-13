@@ -4,6 +4,7 @@
   community.general.pacman:
     state: present
     name:
+    - tlp
     - netcat
     - nmap
     - xclip
@@ -48,3 +49,10 @@
 
       # Zsh plugins
       source ~/tools/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+- name: Enable services
+  ansible.builtin.service:
+    name: "{{ item }}"
+    enabled: True
+  with_items:
+  - tlp.service
