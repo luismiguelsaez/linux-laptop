@@ -50,6 +50,16 @@
       # Zsh plugins
       source ~/tools/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+- name: Modify TLP config
+  ansible.builtin.copy:
+    dest: /etc/tlp.conf
+    backup: True
+    content: |
+      CPU_SCALING_GOVERNOR_ON_AC="performance"
+      CPU_SCALING_GOVERNOR_ON_BAT="powersave"
+      CPU_ENERGY_PERF_POLICY_ON_BAT="balance_power"
+    become: True
+
 - name: Enable services
   ansible.builtin.service:
     name: "{{ item }}"
