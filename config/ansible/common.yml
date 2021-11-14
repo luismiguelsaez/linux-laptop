@@ -1,0 +1,28 @@
+---
+
+- name: Create directory
+  ansible.builtin.file:
+    state: directory
+    path: ~/bin
+
+- name: Get archived packages
+  ansible.builtin.unarchive:
+    src: "{{ item.url }}"
+    dest: ~/bin
+    remote_src: True
+    list_files: True
+    include: ["{{ item.name }}"]
+    mode: u+x
+  with_items:
+    - name: tfswitch
+      url: https://github.com/warrensbox/terraform-switcher/releases/download/0.12.1168/terraform-switcher_0.12.1168_linux_amd64.tar.gz
+  register: url_packages
+
+- name: Get binaries
+  ansible.builtin.get_url:
+    url: "{{ item.url }}"
+    dest: "~/bin/{{ item.name }}"
+    mode: u+x
+  with_items:
+    - name: kind
+      url: https://github.com/kubernetes-sigs/kind/releases/download/v0.11.1/kind-linux-amd64
