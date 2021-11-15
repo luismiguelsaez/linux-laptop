@@ -9,6 +9,7 @@
     - nmap
     - xclip
     - bat
+    - exa
     - vim
     - kubectl
     - kubectx
@@ -48,6 +49,7 @@
       ## Commands
       alias cat="bat"
       alias vi="vim"
+      alias ll="exa --all --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
 
       # Zsh plugins
       source ~/tools/zsh-autosuggestions/zsh-autosuggestions.zsh
