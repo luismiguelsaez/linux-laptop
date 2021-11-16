@@ -11,6 +11,7 @@
     - bat
     - exa
     - vim
+    - jq
     - kubectl
     - kubectx
     - minikube
@@ -35,7 +36,7 @@
 
 - name: Add config
   ansible.builtin.blockinfile:
-    path: ~/.zshrc
+    path: "{{ item.path }}"
     block: |
       PATH=~/bin:$PATH
 
@@ -49,10 +50,16 @@
       ## Commands
       alias cat="bat"
       alias vi="vim"
-      alias ll="exa --all --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
+      alias la="exa --all --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
+      alias ll="exa --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
 
       # Zsh plugins
       source ~/tools/zsh-autosuggestions/zsh-autosuggestions.zsh
+  with_items:
+    - name: zsh
+      path: ~/.zshrc
+    - name: bash
+      path: ~/.bashrc
 
 - name: Modify TLP config
   ansible.builtin.copy:
