@@ -17,6 +17,7 @@
     - minikube
     - terraform
     - terragrunt
+    - docker
   become: True
 
 - name: Create tools dir
