@@ -42,7 +42,7 @@
   ansible.builtin.blockinfile:
     path: "{{ item.path }}"
     block: |
-      PATH=~/bin:$PATH
+      PATH=~/bin:~/.local/share/gem/ruby/3.0.0/bin:$PATH
 
       # Aliases
       ## Abbreviations
