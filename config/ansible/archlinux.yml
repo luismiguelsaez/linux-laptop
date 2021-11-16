@@ -60,8 +60,10 @@
       alias la="exa --all --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
       alias ll="exa --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
 
+      {% if item.name == "zsh" %}
       # Zsh plugins
       source ~/tools/zsh-autosuggestions/zsh-autosuggestions.zsh
+      {% endif %}
   with_items:
     - name: zsh
       path: ~/.zshrc

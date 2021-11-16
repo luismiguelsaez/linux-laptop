@@ -27,6 +27,20 @@
     - name: kind
       url: https://github.com/kubernetes-sigs/kind/releases/download/v0.11.1/kind-linux-amd64
 
+- name: Create fonts dir
+  ansible.builtin.file:
+    state: directory
+    path: ~/.fonts
+
+- name: Create fonts config file
+  ansible.builtin.copy:
+    dest: ~/.fonts.conf
+    content: |
+      <?xml version="1.0"?><!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+      <fontconfig>
+        <dir>~/.fonts</dir>
+      </fontconfig>
+
 - name: Install fonts from URL
   ansible.builtin.get_url:
     url: "{{ item.url }}"
