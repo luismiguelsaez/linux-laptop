@@ -1,14 +1,34 @@
 ---
 
-- name: Create directory
+- name: Create home directories
   ansible.builtin.file:
     state: directory
-    path: ~/bin
+    path: "~/{{ item }}"
+    recurse: True
+  with_items:
+    - tools
+    - .local/bin
+    - .fonts
+    - .local/share/wallpapers
+
+- name: Clone repositories
+  ansible.builtin.git:
+    repo: "{{ item.repo }}"
+    dest: "~/tools/{{ item.name }}"
+  with_items:
+    - name: zsh-autosuggestions
+      repo: https://github.com/zsh-users/zsh-autosuggestions
+    - name: p10k
+      repo: https://github.com/romkatv/powerlevel10k
+    - name: whatweb
+      repo: https://github.com/urbanadventurer/WhatWeb
+    - name: ohmyzsh
+      repo: https://github.com/ohmyzsh/ohmyzsh
 
 - name: Get archived packages
   ansible.builtin.unarchive:
     src: "{{ item.url }}"
-    dest: ~/bin
+    dest: ~/.local/bin
     remote_src: True
     list_files: True
     include: ["{{ item.name }}"]
@@ -21,18 +41,13 @@
 - name: Get binaries
   ansible.builtin.get_url:
     url: "{{ item.url }}"
-    dest: "~/bin/{{ item.name }}"
+    dest: "~/.local/bin/{{ item.name }}"
     mode: u+x
   with_items:
     - name: kind
       url: https://github.com/kubernetes-sigs/kind/releases/download/v0.11.1/kind-linux-amd64
     - name: terragrunt
       url: https://github.com/gruntwork-io/terragrunt/releases/download/v0.35.8/terragrunt_linux_amd64
-
-- name: Create fonts dir
-  ansible.builtin.file:
-    state: directory
-    path: ~/.fonts
 
 - name: Create fonts config file
   ansible.builtin.copy:
@@ -57,3 +72,32 @@
       url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
     - name: MesloLGS_NF_Bold_Italic.ttf
       url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+
+- name: Add shell config
+  ansible.builtin.blockinfile:
+    path: "{{ item.path }}"
+    block: |
+      PATH=~/.local/bin:~/.local/share/gem/ruby/3.0.0/bin:$PATH
+
+      # Aliases
+      ## Abbreviations
+      alias c="clear"
+      ## Kubernetes
+      alias kctx="kubectx"
+      alias kns="kubens"
+      alias k="kubectl"
+      ## Commands
+      alias cat="bat"
+      alias vi="vim"
+      alias la="exa --all --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
+      alias ll="exa --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
+
+      {% if item.name == "zsh" %}
+      # Zsh plugins
+      source ~/tools/zsh-autosuggestions/zsh-autosuggestions.zsh
+      {% endif %}
+  with_items:
+    - name: zsh
+      path: ~/.zshrc
+    - name: bash
+      path: ~/.bashrc
