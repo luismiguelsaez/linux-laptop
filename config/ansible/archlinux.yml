@@ -17,8 +17,8 @@
     - kubectl
     - kubectx
     - minikube
-    - terraform
-    - terragrunt
+    #- terraform
+    #- terragrunt
     - docker
   become: True
 
