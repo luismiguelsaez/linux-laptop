@@ -111,5 +111,5 @@
 
 - name: Install mega package
   ansible.builtin.shell:
-    cmd: pacman -U /tmp/megasync-4.5.3-1-x86_64.pkg.tar.zst
+    cmd: pacman -U --noconfirm /tmp/megasync-4.5.3-1-x86_64.pkg.tar.zst
   become: True
