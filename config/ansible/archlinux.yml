@@ -5,6 +5,7 @@
     state: present
     name:
     - ruby
+    - unzip
     - tlp
     - netcat
     - nmap

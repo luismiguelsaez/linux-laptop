@@ -36,6 +36,8 @@
   with_items:
     - name: tfswitch
       url: https://github.com/warrensbox/terraform-switcher/releases/download/0.12.1168/terraform-switcher_0.12.1168_linux_amd64.tar.gz
+    - name: vault
+      url: https://releases.hashicorp.com/vault/1.9.0/vault_1.9.0_linux_amd64.zip
   register: url_packages
 
 - name: Get binaries
@@ -101,3 +103,13 @@
       path: ~/.zshrc
     - name: bash
       path: ~/.bashrc
+
+- name: Get MEGA package
+  ansible.builtin.get_url:
+    url: https://mega.nz/linux/MEGAsync/Arch_Extra/x86_64/megasync-4.5.3-1-x86_64.pkg.tar.zst
+    dest: /tmp/megasync-4.5.3-1-x86_64.pkg.tar.zst
+
+- name: Install mega package
+  ansible.builtin.shell:
+    cmd: pacman -U /tmp/megasync-4.5.3-1-x86_64.pkg.tar.zst
+  become: True
