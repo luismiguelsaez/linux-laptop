@@ -12,6 +12,13 @@
     - .local/share/wallpapers
     - .config
 
+- name: Install python packages
+  ansible.builtin.pip:
+    state: present
+    name:
+      - awscli>=1.22.6
+      - virtualenv>=20.10.0
+
 - name: Copy configuration files
   ansible.builtin.copy:
     src: configs/local/

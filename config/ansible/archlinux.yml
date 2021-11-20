@@ -5,6 +5,8 @@
     state: present
     name:
     - ruby
+    - python
+    - python-pip
     - unzip
     - tlp
     - netcat
