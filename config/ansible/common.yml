@@ -13,12 +13,9 @@
     - .config
 
 - name: Copy configuration files
-  ansible.builtin.template:
-    src: "{{ item }}"
+  ansible.builtin.copy:
+    src: configs/local/
     dest: ~/.config/
-    backup: True
-  with_fileglob:
-    - "configs/local/*"
 
 - name: Clone repositories
   ansible.builtin.git:

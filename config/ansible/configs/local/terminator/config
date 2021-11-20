@@ -1,0 +1,98 @@
+[global_config]
+  title_transmit_fg_color = "#241f31"
+  title_transmit_bg_color = "#c01c28"
+  title_receive_fg_color = "#241f31"
+  title_inactive_fg_color = "#3d3846"
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.95
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = MesloLGS NF 11
+    disable_mousewheel_zoom = True
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    use_system_font = False
+    use_theme_colors = True
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 169:70
+      maximised = False
+      fullscreen = False
+      size = 1509, 888
+      title = luismi@luismi-lokalise:~
+      last_active_term = ed3824a1-e414-4470-ba87-e984d7ecbd1f
+      last_active_window = True
+    [[[child1]]]
+      type = VPaned
+      parent = child0
+      order = 0
+      position = 442
+      ratio = 0.5005662514156285
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      uuid = ed3824a1-e414-4470-ba87-e984d7ecbd1f
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      uuid = 7f1b6b41-164a-4a5b-b210-344a64ef0a5e
+[plugins]
+[global_config]
+  title_transmit_fg_color = "#241f31"
+  title_transmit_bg_color = "#c01c28"
+  title_receive_fg_color = "#241f31"
+  title_inactive_fg_color = "#3d3846"
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.95
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = MesloLGS NF 11
+    disable_mousewheel_zoom = True
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    use_system_font = False
+    use_theme_colors = True
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 169:70
+      maximised = False
+      fullscreen = False
+      size = 1509, 888
+      title = luismi@luismi-lokalise:~
+      last_active_term = ed3824a1-e414-4470-ba87-e984d7ecbd1f
+      last_active_window = True
+    [[[child1]]]
+      type = VPaned
+      parent = child0
+      order = 0
+      position = 442
+      ratio = 0.5005662514156285
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      uuid = ed3824a1-e414-4470-ba87-e984d7ecbd1f
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      uuid = 7f1b6b41-164a-4a5b-b210-344a64ef0a5e
+[plugins]
