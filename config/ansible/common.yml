@@ -10,6 +10,15 @@
     - .local/bin
     - .fonts
     - .local/share/wallpapers
+    - .config
+
+- name: Copy configuration files
+  ansible.builtin.template:
+    src: "{{ item }}"
+    dest: ~/.config/
+    backup: True
+  with_fileglob:
+    - "configs/local/*"
 
 - name: Clone repositories
   ansible.builtin.git:

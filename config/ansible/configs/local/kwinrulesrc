@@ -1,0 +1,12 @@
+[$Version]
+update_info=kwinrules.upd:replace-placement-string-to-enum
+
+[1]
+Description=Settings for Kate
+size=1264,826
+sizerule=3
+wmclass=kate
+wmclassmatch=1
+
+[General]
+count=1
