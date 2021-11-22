@@ -1,5 +1,13 @@
 ---
 
+- name: Config user
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    append: True
+    groups:
+      - docker
+  become: True
+
 - name: Create home directories
   ansible.builtin.file:
     state: directory
@@ -51,6 +59,8 @@
       url: https://github.com/warrensbox/terraform-switcher/releases/download/0.12.1168/terraform-switcher_0.12.1168_linux_amd64.tar.gz
     - name: vault
       url: https://releases.hashicorp.com/vault/1.9.0/vault_1.9.0_linux_amd64.zip
+    - name: vagrant
+      url: https://releases.hashicorp.com/vagrant/2.2.19/vagrant_2.2.19_linux_amd64.zip
   register: url_packages
 
 - name: Get binaries
