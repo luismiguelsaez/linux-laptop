@@ -11,6 +11,7 @@
     - tlp
     - netcat
     - nmap
+    - bind-tools
     - tcpdump
     - xclip
     - bat
