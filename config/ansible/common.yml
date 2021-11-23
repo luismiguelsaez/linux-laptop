@@ -116,6 +116,7 @@
       alias vi="vim"
       alias la="exa --all --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
       alias ll="exa --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
+      alias tfswitch="tfswitch -b ~/.local/bin/"
 
       {% if item.name == "zsh" %}
       # Zsh plugins
