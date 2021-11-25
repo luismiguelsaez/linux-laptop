@@ -54,6 +54,7 @@
     list_files: True
     include: ["{{ item.name }}"]
     mode: u+x
+    keep_newer: True
   with_items:
     - name: tfswitch
       url: https://github.com/warrensbox/terraform-switcher/releases/download/0.12.1168/terraform-switcher_0.12.1168_linux_amd64.tar.gz
