@@ -99,6 +99,17 @@
     - name: MesloLGS_NF_Bold_Italic.ttf
       url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
+- name: Install ohmyzsh
+  ansible.builtin.shell:
+    cmd: ~/tools/ohmyzsh/tools/install.sh
+    creates: ~/.oh-my-zsh
+
+- name: Enable ohmyzsh plugins
+  ansible.builtin.lineinfile:
+    path: ~/.zshrc
+    regexp: '^plugins=(.*)'
+    line: 'plugins=(git kubectl aws docker kubectx kube-ps1 python pyenv pylint redis-cli vault virtualenv)'
+
 - name: Add shell config
   ansible.builtin.blockinfile:
     path: "{{ item.path }}"
