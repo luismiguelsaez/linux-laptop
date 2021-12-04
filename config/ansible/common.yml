@@ -124,7 +124,7 @@
       alias kns="kubens"
       alias k="kubectl"
       ## Commands
-      alias cat="bat"
+      alias cat="bat --theme="Solarized (light)""
       alias vi="vim"
       alias la="exa --all --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
       alias ll="exa --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
