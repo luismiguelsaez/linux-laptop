@@ -62,6 +62,8 @@
       url: https://releases.hashicorp.com/vault/1.9.0/vault_1.9.0_linux_amd64.zip
     - name: vagrant
       url: https://releases.hashicorp.com/vagrant/2.2.19/vagrant_2.2.19_linux_amd64.zip
+    #- name: helm
+    #  url: https://get.helm.sh/helm-v3.7.2-linux-amd64.tar.gz
   register: url_packages
 
 - name: Get binaries
@@ -74,6 +76,8 @@
       url: https://github.com/kubernetes-sigs/kind/releases/download/v0.11.1/kind-linux-amd64
     - name: terragrunt
       url: https://github.com/gruntwork-io/terragrunt/releases/download/v0.35.8/terragrunt_linux_amd64
+    - name: helmfile
+      url: https://github.com/roboll/helmfile/releases/download/v0.142.0/helmfile_linux_amd64
 
 - name: Create fonts config file
   ansible.builtin.copy:
