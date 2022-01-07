@@ -118,7 +118,8 @@
   ansible.builtin.blockinfile:
     path: "{{ item.path }}"
     block: |
-      PATH=~/.local/bin:~/.local/share/gem/ruby/3.0.0/bin:$PATH
+      GOPATH=~/go
+      PATH=~/.local/bin:$GOPATH/bin:~/.local/share/gem/ruby/3.0.0/bin:$PATH
 
       # Aliases
       ## Abbreviations
