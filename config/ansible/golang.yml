@@ -29,6 +29,7 @@
 - name: Set go environment
   ansible.builtin.blockinfile:
     path: "{{ item.path }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK go environment"
     block: |
       # Go runtime settings
       export PATH=$PATH:/usr/local/go/bin

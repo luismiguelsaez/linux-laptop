@@ -117,9 +117,9 @@
 - name: Add shell config
   ansible.builtin.blockinfile:
     path: "{{ item.path }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK shell config"
     block: |
-      GOPATH=~/go
-      PATH=~/.local/bin:$GOPATH/bin:~/.local/share/gem/ruby/3.0.0/bin:$PATH
+      PATH=~/.local/bin:~/.local/share/gem/ruby/3.0.0/bin:$PATH
 
       # Aliases
       ## Abbreviations
@@ -145,12 +145,12 @@
     - name: bash
       path: ~/.bashrc
 
-- name: Get MEGA package
-  ansible.builtin.get_url:
-    url: https://mega.nz/linux/MEGAsync/Arch_Extra/x86_64/megasync-4.5.3-1-x86_64.pkg.tar.zst
-    dest: /tmp/megasync-4.5.3-1-x86_64.pkg.tar.zst
+#- name: Get MEGA package
+#  ansible.builtin.get_url:
+#    url: https://mega.nz/linux/MEGAsync/Arch_Extra/x86_64/megasync-4.5.3-1-x86_64.pkg.tar.zst
+#    dest: /tmp/megasync-4.5.3-1-x86_64.pkg.tar.zst
 
-- name: Install mega package
-  ansible.builtin.shell:
-    cmd: pacman -U --noconfirm /tmp/megasync-4.5.3-1-x86_64.pkg.tar.zst
-  become: True
+#- name: Install mega package
+#  ansible.builtin.shell:
+#    cmd: pacman -U --noconfirm /tmp/megasync-4.5.3-1-x86_64.pkg.tar.zst
+#  become: True
