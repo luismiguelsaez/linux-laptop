@@ -1,0 +1,43 @@
+---
+
+- name: Create directories
+  ansible.builtin.file:
+    state: directory
+    path: "~/{{ item }}"
+    recurse: True
+  with_items:
+    - golibs/bin
+    - golibs/src
+    - golibs/pkg
+    - goprojects/bin
+    - goprojects/src
+    - goprojects/pkg
+
+- name: Get go package
+  ansible.builtin.unarchive:
+    src: "{{ item.url }}"
+    dest: /usr/local/
+    remote_src: True
+    list_files: False
+    mode: u+x
+    keep_newer: True
+  with_items:
+    - name: go
+      url: https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
+  become: True
+
+- name: Set go environment
+  ansible.builtin.blockinfile:
+    path: "{{ item.path }}"
+    block: |
+      # Go runtime settings
+      export PATH=$PATH:/usr/local/go/bin
+      # Go workspace settings
+      export GOPATH=$HOME/golibs
+      export PATH=$PATH:$GOPATH/bin
+      export GOPATH=$GOPATH:$HOME/goprojects
+  with_items:
+  - name: zsh
+    path: ~/.zshrc
+  - name: bash
+    path: ~/.bashrc
