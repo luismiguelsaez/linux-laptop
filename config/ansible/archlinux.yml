@@ -21,6 +21,7 @@
     - kubectl
     - kubectx
     - minikube
+    - k9s
     #- terraform
     #- terragrunt
     - docker
