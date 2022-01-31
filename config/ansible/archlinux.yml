@@ -13,6 +13,8 @@
     - nmap
     - bind-tools
     - tcpdump
+    - traceroute
+    - gparted
     - xclip
     - bat
     - exa
@@ -22,8 +24,6 @@
     - kubectx
     - minikube
     - k9s
-    #- terraform
-    #- terragrunt
     - docker
   become: True
 

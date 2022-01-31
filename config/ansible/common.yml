@@ -65,7 +65,7 @@
     - name: terraform-docs
       url: https://github.com/terraform-docs/terraform-docs/releases/download/v0.16.0/terraform-docs-v0.16.0-linux-amd64.tar.gz 
     #- name: helm
-    #  url: https://get.helm.sh/helm-v3.7.2-linux-amd64.tar.gz
+    #  url: https://get.helm.sh/helm-v3.8.0-linux-amd64.tar.gz 
   register: url_packages
 
 - name: Get binaries
