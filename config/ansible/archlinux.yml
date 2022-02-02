@@ -19,6 +19,7 @@
     - bat
     - exa
     - vim
+    - htop
     - jq
     - kubectl
     - kubectx
