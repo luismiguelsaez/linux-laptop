@@ -80,6 +80,8 @@
       url: https://github.com/gruntwork-io/terragrunt/releases/download/v0.35.8/terragrunt_linux_amd64
     - name: helmfile
       url: https://github.com/roboll/helmfile/releases/download/v0.142.0/helmfile_linux_amd64
+    - name: docker-compose
+      url: https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64
 
 - name: Create fonts config file
   ansible.builtin.copy:
