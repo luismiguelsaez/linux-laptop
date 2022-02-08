@@ -27,6 +27,17 @@
       - awscli>=1.22.6
       - virtualenv>=20.10.0
 
+- name: Set vim configuration
+  ansible.builtin.copy:
+    dest: ~/.vimrc
+    content: |
+      set number
+      set tabstop=2 softtabstop=2
+      set autoindent
+      set expandtab
+      syntax on
+      colorscheme industry
+
 - name: Copy configuration files
   ansible.builtin.copy:
     src: configs/local/
