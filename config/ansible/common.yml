@@ -56,6 +56,8 @@
       repo: https://github.com/urbanadventurer/WhatWeb
     - name: ohmyzsh
       repo: https://github.com/ohmyzsh/ohmyzsh
+    - name: vim-python-ide
+      repo: https://github.com/rapphil/vim-python-ide.git
 
 - name: Get archived packages
   ansible.builtin.unarchive:
@@ -80,6 +82,8 @@
       url: https://github.com/terraform-docs/terraform-docs/releases/download/v0.16.0/terraform-docs-v0.16.0-linux-amd64.tar.gz 
     - name: s3sync
       url: https://github.com/larrabee/s3sync/releases/download/2.33/s3sync_2.33_Linux_x86_64.tar.gz
+    - name: eksctl
+      url: https://github.com/weaveworks/eksctl/releases/download/v0.98.0/eksctl_Linux_amd64.tar.gz
     #- name: gh
     #  package_path: 'gh_2.8.0_linux_amd64\\\/bin\\\/'
     #  url: https://github.com/cli/cli/releases/download/v2.8.0/gh_2.8.0_linux_amd64.tar.gz
