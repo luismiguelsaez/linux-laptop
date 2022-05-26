@@ -84,6 +84,8 @@
       url: https://github.com/larrabee/s3sync/releases/download/2.33/s3sync_2.33_Linux_x86_64.tar.gz
     - name: eksctl
       url: https://github.com/weaveworks/eksctl/releases/download/v0.98.0/eksctl_Linux_amd64.tar.gz
+    - name: kubectx
+      url: https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubectx_v0.9.4_linux_x86_64.tar.gz
     #- name: gh
     #  package_path: 'gh_2.8.0_linux_amd64\\\/bin\\\/'
     #  url: https://github.com/cli/cli/releases/download/v2.8.0/gh_2.8.0_linux_amd64.tar.gz
