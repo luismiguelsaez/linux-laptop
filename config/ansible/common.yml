@@ -106,6 +106,8 @@
       url: https://github.com/roboll/helmfile/releases/download/v0.142.0/helmfile_linux_amd64
     - name: docker-compose
       url: https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64
+    - name: kubectl
+      url: https://dl.k8s.io/release/v1.23.6/bin/linux/amd64/kubectl
 
 - name: Create fonts config file
   ansible.builtin.copy:
