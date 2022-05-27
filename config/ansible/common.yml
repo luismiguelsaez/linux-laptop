@@ -59,6 +59,8 @@
       repo: https://github.com/ohmyzsh/ohmyzsh
     - name: vim-python-ide
       repo: https://github.com/rapphil/vim-python-ide.git
+    - name: kube-ps1
+      repo: https://github.com/jonmosco/kube-ps1
 
 - name: Get archived packages
   ansible.builtin.unarchive:
