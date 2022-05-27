@@ -171,11 +171,21 @@
       alias la="exa --all --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
       alias ll="exa --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
       alias tfswitch="tfswitch -b ~/.local/bin/"
-
+      # Enable kube-ps1
+      source ~/tools/kube-ps1/kube-ps1.sh 
+      PROMPT='$(kube_ps1)'$PROMPT 
+      KUBE_PS1_CLUSTER_FUNCTION=get_aws_cluster_short
       {% if item.name == "zsh" %}
       # Zsh plugins
       source ~/tools/zsh-autosuggestions/zsh-autosuggestions.zsh
       {% endif %}
+      # Functions
+      function get_aws_cluster_short() {
+          echo "$1" | sed -e 's/arn:aws:eks://g' -e 's/:cluster\/://g'  
+      }
+      function get_aws_cluster_shortest() {
+          echo "$1" | sed 's/arn:aws:eks:.*\/\(.*\)/\1/g' 
+      } 
   with_items:
     - name: zsh
       path: ~/.zshrc
