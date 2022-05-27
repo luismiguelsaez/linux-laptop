@@ -147,7 +147,7 @@
   ansible.builtin.lineinfile:
     path: ~/.zshrc
     regexp: '^plugins=(.*)'
-    line: 'plugins=(git kubectl aws docker kubectx kube-ps1 python pyenv pylint redis-cli vault virtualenv)'
+    line: 'plugins=(git kubectl kube-ps1 aws docker kubectx kube-ps1 python pyenv pylint redis-cli vault virtualenv)'
 
 - name: Add shell config
   ansible.builtin.blockinfile:
