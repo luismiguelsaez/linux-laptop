@@ -26,6 +26,7 @@
     name:
       - awscli>=1.22.6
       - virtualenv>=20.10.0
+      - virtualenvwrapper>=4.8.4
 
 - name: Set vim configuration
   ansible.builtin.copy:
