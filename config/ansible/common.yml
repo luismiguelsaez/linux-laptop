@@ -91,6 +91,10 @@
       url: https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubectx_v0.9.4_linux_x86_64.tar.gz
     - name: kubens
       url: https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens_v0.9.4_linux_x86_64.tar.gz
+    - name: argocd
+      url: https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+    - name: flux
+      url: https://github.com/fluxcd/flux2/releases/download/v0.30.2/flux_0.30.2_linux_amd64.tar.gz
     #- name: gh
     #  package_path: 'gh_2.8.0_linux_amd64\\\/bin\\\/'
     #  url: https://github.com/cli/cli/releases/download/v2.8.0/gh_2.8.0_linux_amd64.tar.gz
