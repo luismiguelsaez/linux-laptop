@@ -195,6 +195,13 @@
             /vault-.*@.*@.*eksctl.io/{ split($1,a,"@");print a[3]; }
             /arn:aws:eks:.*:[0-9]+:cluster\/.*/{ print $1; }'
       }
+      function shorten_cluster_name() {
+          echo "$1" | awk '
+            BEGIN{ sw=0; }
+            /vault-.*@.*@.*eksctl.io/{ split($1,a,"@");print a[3];sw=1; }
+            /arn:aws:eks:.*:[0-9]+:cluster\/.*/{ print $1;sw=1; }
+            END{ if( $sw > 0 ){ print $0; } }'
+      }
   with_items:
     - name: zsh
       path: ~/.zshrc
