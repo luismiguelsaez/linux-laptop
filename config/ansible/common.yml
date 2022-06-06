@@ -178,7 +178,7 @@
       # Enable kube-ps1
       source ~/tools/kube-ps1/kube-ps1.sh 
       PROMPT='$(kube_ps1)'$PROMPT 
-      KUBE_PS1_CLUSTER_FUNCTION=get_aws_cluster_short
+      KUBE_PS1_CLUSTER_FUNCTION=shorten_cluster_name
       {% if item.name == "zsh" %}
       # Zsh plugins
       source ~/tools/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -190,6 +190,11 @@
       function get_aws_cluster_shortest() {
           echo "$1" | sed 's/arn:aws:eks:.*\/\(.*\)/\1/g' 
       } 
+      function shorten_cluster_name() {
+          echo "$1" | awk '
+            /vault-.*@.*@.*eksctl.io/{ split($1,a,"@");print a[3]; }
+            /arn:aws:eks:.*:[0-9]+:cluster\/.*/{ print $1; }'
+      }
   with_items:
     - name: zsh
       path: ~/.zshrc
