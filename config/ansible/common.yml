@@ -180,6 +180,8 @@
       alias la="exa --all --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
       alias ll="exa --long --sort date --group-directories-first --time modified --extended --git --icons --octal-permissions"
       alias tfswitch="tfswitch -b ~/.local/bin/"
+      # Completion
+      source <(kubectl-argo-rollouts completion bash)
       # Enable kube-ps1
       source ~/tools/kube-ps1/kube-ps1.sh 
       PROMPT='$(kube_ps1)'$PROMPT 
