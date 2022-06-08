@@ -121,6 +121,9 @@
       url: https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64
     - name: kubectl
       url: https://dl.k8s.io/release/v1.23.6/bin/linux/amd64/kubectl
+    - name: kubectl-argo-rollouts
+      url: https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
+
 
 - name: Create fonts config file
   ansible.builtin.copy:
